@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/axios.js"></script>
+</head>
+
+<body>
+    <button id="btn1">发起GET请求</button>
+    <button id="btn2">发起POST请求</button>
+    <button id="btn3">直接使用axios发起GET请求</button>
+    <button id="btn4">直接使用axios发起POST请求</button>
+</body>
+<script>
+    //1.get
+    document.querySelector("#btn1").addEventListener('click', function() {
+        var url = 'http://www.liulongbin.top:3006/api/get'
+        var paramsObj = {
+            name: 'zs',
+            age: 20
+        }
+        axios.get(url, {
+            params: paramsObj
+        }).then(function(res) {
+            console.log(res.data);
+
+        })
+
+    })
+
+    //2.post
+    document.querySelector('#btn2').addEventListener('click', function() {
+        var url = 'http://www.liulongbin.top:3006/api/post'
+        var paramsObj1 = {
+            address: "背景",
+            location: "顺一期"
+        }
+        axios.post(url, paramsObj1).then(function(res) {
+            console.log(res.data);
+
+        })
+    })
+
+    //3.直接使用axios发起请求get
+    document.querySelector('#btn3').addEventListener('click', function() {
+        var url = 'http://www.liulongbin.top:3006/api/get'
+        var paramsObj = {
+            name: 'zs',
+            age: 20
+        }
+        axios({
+            method: "GET",
+            url: url,
+            params: paramsObj
+        }).then(function(res) {
+            console.log(res.data);
+
+        })
+    })
+
+    //4.直接使用axios发起请求post
+    document.querySelector('#btn4').addEventListener('click', function() {
+
+        axios({
+            method: "POST",
+            url: 'http://www.liulongbin.top:3006/api/post',
+            data: {
+                name: '娃哈哈',
+                age: 18,
+                gender: '女'
+            }
+        }).then(function(res) {
+            console.log(res.data);
+
+        })
+    })
+</script>
+
+</html>

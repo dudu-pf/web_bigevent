@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="btnJSONP">发起JSONP数据请求</button>
+
+    <script>
+        $(function() {
+            // 发起JSONP的请求
+            //     $.ajax({
+            //         url: 'http://www.liulongbin.top:3006/api/jsonp?callback=abc&name=ls&age=30',
+            //         // 代表我们要发起JSONP的数据请求
+            //         dataType: 'jsonp',
+            //发送到服务器的参数名称，默认值为callback   可以省略
+
+            //         jsonp: 'callback',
+            // 自定义的回调函数名称，默认值JQeryxxx 
+
+            //         jsonpCallback: 'abc',
+            //         success: function(res) {
+            //             console.log(res)
+            //         }
+            //     })
+            // })
+
+            $('#btnJSONP').on('click', function() {
+                $.ajax({
+                    url: 'http://www.liulongbin.top:3006/api/jsonp?address=北京&location=顺义',
+                    dataType: 'jsonp',
+                    jsonpCallback: 'abc',
+                    success: function(res) {
+                        console.log(res)
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

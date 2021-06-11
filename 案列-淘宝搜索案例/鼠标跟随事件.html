@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../案列-淘宝搜索案例/lib/jquery.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        #angel {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../案列-淘宝搜索案例/images/angel.gif" id="angel">
+</body>
+<script>
+    $(function() {
+        //1.获取图片
+        var angel = $('#angel')
+            //步骤1：定义节流阀
+        var timer = null
+            //2.绑定mousemove事件
+        $(document).on('mousemove', function(e) {
+            // 步骤3：判断节流阀是否为空，不为空则证明距离上传执行间隔不足16s
+            if (timer) {
+                return
+            }
+            // console.log(e.pageX);
+            // console.log(e.pageY);
+            // 3.设置图片的位置
+            // 步骤2：开启延时器
+            timer = setTimeout(function() {
+                $(angel).css('top', e.pageY + 'px').css('left', e.pageX + 'px')
+                console.log('ok');
+
+                timer = null //当鼠标设置跟随效果手，清空timer节流阀，方便下次开启延时器
+            }, 20)
+
+
+        })
+    })
+</script>
+
+</html>

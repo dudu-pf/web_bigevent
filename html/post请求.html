@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="btnpost">点击增加图书</button>
+    <script>
+        $(function() {
+            $('#btnpost').on('click', function() {
+                $.post('http://www.liulongbin.top:3006/api/addbook', {
+                    bookname: "巴拉啦小魔仙",
+                    author: "黄大仙",
+                    publisher: "河南图书出版社"
+                }, function(res) {
+                    console.log(res);
+
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

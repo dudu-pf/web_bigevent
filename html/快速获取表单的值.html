@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <form action="/login" id="f1">
+        <input type="text" name="user_name" />
+        <input type="password" name="password" />
+        <button type="submit">提交</button>
+    </form>
+</body>
+<script>
+    $(function() {
+        //第一种方式
+        // $("#f1").submit(function(e) {
+        // e.preventDefault();
+        //要使用serialize()快速获取到表单数据，需要标签里面有name属性且不能重复
+        //     var data = $(this).serialize();
+        //     console.log(data);
+        // });
+
+        //第二种方式
+        $("#f1").on('submit', function(e) {
+            // alert('监听到了表单的提交事件');
+            e.preventDefault();
+            var data = $('#f1').serialize();
+            console.log(data);
+
+        })
+    })
+</script>
+
+</html>

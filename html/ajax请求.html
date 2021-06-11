@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <button id="btnajaxget">ajax请求获取图书</button>
+    <button id="btnajaxpost">ajax请求增加图书</button>
+
+    <script>
+        $(function() {
+            $('#btnajaxget').on('click', function() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://www.liulongbin.top:3006/api/getbooks',
+                    data: {
+                        id: 1
+                    },
+                    success: function(res) {
+                        console.log(res);
+
+                    }
+                })
+            });
+            $('#btnajaxpost').on('click', function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://www.liulongbin.top:3006/api/addbook',
+                    data: {
+                        bookname: "刘皇叔",
+                        author: "柳柳",
+                        publisher: "上海图书出版社"
+                    },
+                    success: function(res) {
+                        console.log(res);
+
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

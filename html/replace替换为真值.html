@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var data = {
+            name: '张安',
+            age: 18
+        }
+        var str = '<div>{{name}}今年{{ age }}岁了</div>'
+        var pattern = /{{\s*([a-zA-Z]+)\s*}}/
+        var patternres = null;
+        while (patternres = pattern.exec(str)) {
+            str = str.replace(patternres[0], data[patternres[1]])
+        }
+        console.log(str); //<div>张安今年18岁了</div>
+    </script>
+</body>
+
+</html>
