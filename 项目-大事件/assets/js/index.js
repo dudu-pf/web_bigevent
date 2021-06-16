@@ -50,6 +50,7 @@ function getuserInfo() {
         //         location.href = '/login.html'
         //     }
         // }
+        // }
 
     })
 }
