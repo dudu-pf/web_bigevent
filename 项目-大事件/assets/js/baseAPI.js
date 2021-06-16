@@ -26,4 +26,10 @@ $.ajaxPrefilter(function(options) {
     }
 
 
+    options.headers = {
+        Authorization: localStorage.getItem('token') || ''
+    }
+
+
+
 })
