@@ -65,7 +65,7 @@ $(function() {
                 //将登陆成功等到的token保存到localStorage中
                 localStorage.setItem('token', res.token)
                     // 跳转到后台主页
-                location.href = 'index.html'
+                location.href = '/项目-大事件/index.html'
             }
         })
     })

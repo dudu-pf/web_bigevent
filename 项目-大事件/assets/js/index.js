@@ -10,7 +10,7 @@ $(function() {
                     //1.清空本地存储中的token
                     localStorage.removeItem('token')
                         // 2.重新跳转到登录页
-                    location.href = 'login.html'
+                    location.href = '/项目-大事件/login.html'
                     layer.close(index);
                 });
         })
